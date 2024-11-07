@@ -1,0 +1,48 @@
+// ZakatMaalCalculator.java
+import java.util.Scanner;
+
+public class ZakatMaalCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String opsi;
+        double batasNisab = 85000000; // Batas nisab berdasarkan harga emas
+
+        do {
+            // Meminta input dari pengguna untuk data Muzaki
+            System.out.print("Masukkan nama pemberi zakat (muzaki): ");
+            String namaMuzaki = scanner.nextLine();
+            System.out.print("Masukkan total aset (Rp): ");
+            double jumlahAset = scanner.nextDouble();
+            scanner.nextLine(); // Membersihkan newline
+
+            // Membuat objek Muzaki
+            Muzaki muzaki = new Muzaki(namaMuzaki, jumlahAset);
+
+            // Meminta informasi penerima zakat
+            System.out.print("Masukkan nama penerima zakat: ");
+            String namaPenerimaZakat = scanner.nextLine();
+            System.out.print("Masukkan jenis penerima zakat (misal: fakir, miskin): ");
+            String kategoriPenerima = scanner.nextLine();
+
+            // Membuat objek PenerimaZakat
+            Penerima penerima = new Penerima(namaPenerimaZakat, kategoriPenerima);
+
+            // Mengecek apakah muzaki wajib zakat atau tidak
+            if (muzaki.cekNisab(batasNisab)) {
+                double jumlahZakat = muzaki.kalkulasiZakatMaal();
+                System.out.printf("Jumlah zakat yang wajib dibayarkan oleh %s: Rp %.2f%n", muzaki.getNamaMuzaki(), jumlahZakat);
+                System.out.printf("Zakat ini disalurkan kepada %s dengan kategori %s%n", penerima.getNamaPenerimaZakat(), penerima.getJenisPenerima());
+            } else {
+                System.out.println("Jumlah aset belum mencapai nisab. Tidak ada kewajiban zakat.");
+            }
+
+            // Meminta pengguna apakah ingin melakukan perhitungan lagi
+            System.out.print("Apakah Anda ingin menghitung zakat lagi? (y/n): ");
+            opsi = scanner.nextLine();
+
+        } while (opsi.equalsIgnoreCase("y"));
+
+        scanner.close();
+        System.out.println("Program selesai.");
+    }
+}
