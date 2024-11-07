@@ -1,0 +1,28 @@
+public class Penerima {
+    private String namaPenerimaZakat;
+    private String jenisPenerima;
+
+    // Konstruktor berparameter untuk inisialisasi nama dan jenis penerima
+    public Penerima(String namaPenerimaZakat, String jenisPenerima) {
+        this.namaPenerimaZakat = namaPenerimaZakat;
+        this.jenisPenerima = jenisPenerima;
+    }
+
+    // Setter dan Getter untuk nama penerima zakat
+    public void setNamaPenerimaZakat(String namaPenerimaZakat) {
+        this.namaPenerimaZakat = namaPenerimaZakat;
+    }
+
+    public String getNamaPenerimaZakat() {
+        return namaPenerimaZakat;
+    }
+
+    // Setter dan Getter untuk jenis penerima
+    public void setJenisPenerima(String jenisPenerima) {
+        this.jenisPenerima = jenisPenerima;
+    }
+
+    public String getJenisPenerima() {
+        return jenisPenerima;
+    }
+}
