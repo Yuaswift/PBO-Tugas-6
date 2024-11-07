@@ -1,0 +1,38 @@
+public class Muzaki {
+    private String namaMuzaki;
+    private double asetMuzaki;
+
+    // Konstruktor berparameter untuk inisialisasi nama dan jumlah aset
+    public Muzaki(String namaMuzaki, double asetMuzaki) {
+        this.namaMuzaki = namaMuzaki;
+        this.asetMuzaki = asetMuzaki;
+    }
+
+    // Setter dan Getter untuk namaMuzaki
+    public void setNamaMuzaki(String namaMuzaki) {
+        this.namaMuzaki = namaMuzaki;
+    }
+
+    public String getNamaMuzaki() {
+        return namaMuzaki;
+    }
+
+    // Setter dan Getter untuk asetMuzaki
+    public void setAsetMuzaki(double asetMuzaki) {
+        this.asetMuzaki = asetMuzaki;
+    }
+
+    public double getAsetMuzaki() {
+        return asetMuzaki;
+    }
+
+    // Metode untuk menghitung nilai zakat maal (2.5% dari total aset)
+    public double kalkulasiZakatMaal() {
+        return asetMuzaki * 0.025;
+    }
+
+    // Metode untuk mengecek apakah aset memenuhi syarat nisab
+    public boolean cekNisab(double nilaiNisab) {
+        return asetMuzaki >= nilaiNisab;
+    }
+}
